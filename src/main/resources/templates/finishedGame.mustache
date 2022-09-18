@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BullsAndCowsApp</title>
+</head>
+<body>
+<style>
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .form_button {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #41b883;
+        background-color: unset;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    .form_button:hover {
+        background-color: #41b883;
+    }
+</style>
+
+<table>
+    <tr>
+        <th align="left">Your attempts</th>
+    </tr>
+
+    {{#resultList}}
+        <tr>
+            <td>{{.}}</td>
+        </tr>
+    {{/resultList}}
+</table>
+
+<form class="form" action="/main/game" method="get">
+    <button class="form_button" type="submit">
+        New game
+    </button>
+</form>
+
+<form class="form" action="/main" method="get">
+    <button class="form_button" type="submit">
+        Back to main menu
+    </button>
+</form>
+
+</body>
+</html>

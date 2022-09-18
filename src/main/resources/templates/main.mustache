@@ -1,0 +1,48 @@
+<html>
+<body>
+<style>
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .form_button {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #41b883;
+        background-color: unset;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    .form_button:hover {
+        background-color: #41b883;
+    }
+</style>
+
+<form class="form" action="/main/game" method="get">
+    <button class="form_button" type="submit">
+        New game
+    </button>
+</form>
+
+<form class="form" action="/main/game/attempt" method="get">
+    <button class="form_button" type="submit">
+        Continue game
+    </button>
+</form>
+
+<form class="form" action="/main/records" method="get">
+    <button class="form_button" type="submit">
+        View records
+    </button>
+</form>
+
+<form class="form" action="/logout" method="post">
+    <button class="form_button" type="submit">
+        Sign out
+    </button>
+</form>
+
+</body>
+</html>

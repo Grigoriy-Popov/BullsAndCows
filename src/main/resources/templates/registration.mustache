@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BullsAndCowsApp</title>
+</head>
+<body>
+<style>
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .form_input-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+    .form_label {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    .form_input {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid gray;
+    }
+    .form_button {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #41b883;
+        background-color: unset;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    .form_button:hover {
+        background-color: #41b883;
+    }
+
+</style>
+
+Registration page
+{{#message}}
+    {{message}}
+{{/message}}
+
+<form class="form" action="/registration" method="post">
+    <label class="form_input-wrapper">
+        <span class="form_label">user name</span>
+        <input class="form_input" type="text" name="username" placeholder="username">
+    </label>
+    <label class="form_input-wrapper">
+        <span class="form_label">password</span>
+        <input  class="form_input" type="password" name="password" placeholder="password">
+    </label>
+    <button class="form_button" type="submit">
+        Sign Up
+    </button>
+</form>
+
+<form class="form" action="/login" method="get">
+    <button class="form_button" type="submit">
+        Back to login page
+    </button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<body>
+<style>
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .form_button {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #41b883;
+        background-color: unset;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    .form_button:hover {
+        background-color: #41b883;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    table, td, th {
+        border: 1px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<h2>Records</h2>
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Average Attempts</th>
+    </tr>
+
+    {{#records}}
+        <tr>
+            <td>{{username}}</td>
+            <td>{{averageAttempts}}</td>
+        </tr>
+    {{/records}}
+</table>
+
+<form class="form" action="/main" method="get">
+    <button class="form_button" type="submit">
+        Back to main menu
+    </button>
+</form>
+
+</body>
+</html>

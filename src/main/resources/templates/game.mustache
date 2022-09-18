@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>BullsAndCowsApp</title>
+</head>
+<body>
+<style>
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .form_input-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+    .form_label {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    .form_input {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid gray;
+    }
+    .form_button {
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #41b883;
+        background-color: unset;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+        margin-top: 10px;
+        display: none;
+    }
+    .form_button--visible {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        text-decoration: unset;
+    }
+    .form_button2 {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #41b883;
+        background-color: unset;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+        margin-top: 10px;
+        display: none;
+    }
+    .form_button2--visible {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        text-decoration: unset;
+    }
+    .form_button:hover {
+        background-color: #41b883;
+    }
+    .form_button2:hover {
+        background-color: #41b883;
+    }
+</style>
+{{#errorMessage}}
+    {{errorMessage}}
+{{/errorMessage}}
+
+<style>
+    .click-control-form {
+        display: flex;
+        flex-direction: column;
+        width: 170px;
+        background-color: #ededed;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .click-control-form label {
+        display: flex;
+        flex-direction: column;
+    }
+    .click-control-form_input {
+        border-radius: 5px;
+        border: 1px solid gray;
+        height: 20px;
+        outline: unset;
+    }
+    .click-control-form_number-panel {
+        display: none;
+        margin-top: 10px;
+    }
+    .click-control-form_number-panel--visible {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+    }
+    .click-control-form_number-panel_number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        border-radius: 4px;
+        background-color: #b1b1b1;
+        transition: 0.35s ease-in-out;
+        cursor: pointer;
+        user-select: none;
+    }
+</style>
+
+<form action="/main/game/attempt" method="post" class="click-control-form">
+    <label>
+        Enter a 4-digit number
+        <input class="click-control-form_input" id="controlFormInput" type="number" name="userNumber" placeholder="number">
+    </label>
+    <div class="click-control-form_number-panel" id="numberPanel">
+        <div class="click-control-form_number-panel_number panel_number" data-value="1">1</div>
+        <div class="click-control-form_number-panel_number panel_number" data-value="2">2</div>
+        <div class="click-control-form_number-panel_number panel_number" data-value="3">3</div>
+        <div class="click-control-form_number-panel_number panel_number" data-value="4">4</div>
+        <div class="click-control-form_number-panel_number panel_number" data-value="5">5</div>
+        <div class="click-control-form_number-panel_number panel_number" data-value="6">6</div>
+        <div class="click-control-form_number-panel_number panel_number" data-value="7">7</div>
+        <div class="click-control-form_number-panel_number panel_number" data-value="8">8</div>
+        <div class="click-control-form_number-panel_number panel_number" data-value="9">9</div>
+        <div class="click-control-form_number-panel_number panel_number--disabel"></div>
+        <div class="click-control-form_number-panel_number panel_number" data-value="0">0</div>
+        <div class="click-control-form_number-panel_number panel_number-delete" id="numberDelete"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/></svg></div>
+    </div>
+    <button class="form_button" id="controlFormButton" type="submit">
+        Send
+    </button>
+</form>
+
+<script>
+    const panelElements = document.querySelectorAll('.panel_number');
+
+    panelElements.forEach(function(element) {
+        element.addEventListener("click", function() {
+            controlFormInput.value = (controlFormInput.value + this.dataset.value).slice(0,4);
+        });
+    });
+
+    controlFormInput.oninput = function() {
+        controlFormInput.value = controlFormInput.value.slice(0,4);
+    }
+
+    controlFormInput.onfocus = function() {
+        controlFormButton.classList.add("form_button--visible");
+        numberPanel.classList.add("click-control-form_number-panel--visible");
+    }
+
+    numberDelete.onclick = function() {
+        controlFormInput.value = controlFormInput.value.slice(0, -1);
+    }
+
+</script>
+
+<table>
+    <tr>
+        <th align="left">Previous attempts</th>
+    </tr>
+
+    {{#resultList}}
+        <tr>
+            <td>{{.}}</td>
+        </tr>
+    {{/resultList}}
+</table>
+
+<a href="/main" class="form_button2 form_button2--visible">Back to main menu</a>
+
+</body>
+</html>

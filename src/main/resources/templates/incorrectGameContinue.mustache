@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<style>
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .form_button {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #41b883;
+        background-color: unset;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    .form_button:hover {
+        background-color: #41b883;
+    }
+</style>
+
+<div align="centre">You don't have an active game</div>
+<form class="form" action="/main" method="get">
+    <button class="form_button" type="submit">
+        Back to main menu
+    </button>
+</form>
+</body>
+</html>
