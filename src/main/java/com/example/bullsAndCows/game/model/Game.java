@@ -1,6 +1,6 @@
-package com.example.bullsAndCows.games.model;
+package com.example.bullsAndCows.game.model;
 
-import com.example.bullsAndCows.users.User;
+import com.example.bullsAndCows.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "games")
 public class Game {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)

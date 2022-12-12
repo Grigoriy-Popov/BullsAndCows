@@ -1,4 +1,4 @@
-package com.example.bullsAndCows.games.model;
+package com.example.bullsAndCows.record;
 
 import lombok.AllArgsConstructor;
 

@@ -1,6 +1,6 @@
-package com.example.bullsAndCows.attempts;
+package com.example.bullsAndCows.attempt;
 
-import com.example.bullsAndCows.users.User;
+import com.example.bullsAndCows.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

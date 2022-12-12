@@ -1,7 +1,7 @@
-package com.example.bullsAndCows.util;
+package com.example.bullsAndCows;
 
-import com.example.bullsAndCows.users.User;
-import com.example.bullsAndCows.users.UserService;
+import com.example.bullsAndCows.user.User;
+import com.example.bullsAndCows.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

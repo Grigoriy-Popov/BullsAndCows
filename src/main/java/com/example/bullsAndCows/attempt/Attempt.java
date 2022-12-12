@@ -1,7 +1,7 @@
-package com.example.bullsAndCows.attempts;
+package com.example.bullsAndCows.attempt;
 
-import com.example.bullsAndCows.games.model.Game;
-import com.example.bullsAndCows.users.User;
+import com.example.bullsAndCows.game.model.Game;
+import com.example.bullsAndCows.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Table(name = "attempts")
 public class Attempt {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "game_id", nullable = false)

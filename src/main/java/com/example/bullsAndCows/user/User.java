@@ -1,4 +1,4 @@
-package com.example.bullsAndCows.users;
+package com.example.bullsAndCows.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
