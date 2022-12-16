@@ -32,9 +32,22 @@
 Реализован запуск приложения в docker-контейнерe со встроенной СУБД H2.
 
 1 вариант:
-* Собрать jar проекта: mvn -clean -install;
-* Создать docker образ из директории проекта командой docker build -t <имя образа> .  ;
-* Запустить приложение командой docker run --name <имя контейнера> -p 8080:8080 <имя образа>
+* Собрать jar проекта:
+```shell
+mvn clean package
+```
+* Создать docker образ из директории проекта командой:
+```shell
+docker build -t <имя образа> .
+```
+* Запустить приложение командой:
+```shell
+docker run --name <имя контейнера> -p 8080:8080 <имя образа>
+```
+
 2 вариант:
 * Склонировать образ с Docker Hub - https://hub.docker.com/repository/docker/grigoriypopov/bullsandcows
-* Запустить приложение командой docker run --name <имя контейнера> -p 8080:8080 bullsandcows:v1
+* Запустить приложение командой:
+```shell
+docker run --name <имя контейнера> -p 8080:8080 bullsandcows:v1
+```
