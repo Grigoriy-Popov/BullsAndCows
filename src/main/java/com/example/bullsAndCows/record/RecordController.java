@@ -14,7 +14,7 @@ import java.util.List;
 public class RecordController {
     private final RecordService recordService;
 
-    @GetMapping()
+    @GetMapping
     public String getRecords(Model model) {
         List<Record> records = recordService.getRecords();
         if (records.isEmpty()) {

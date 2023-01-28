@@ -9,7 +9,7 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 
     long countAllByUserAndFinishedIsTrue(User user);
 
-    @Query("SELECT g.finished FROM Game g WHERE g.id = ?1")
+    @Query("SELECT g.finished FROM Game g WHERE g.id = :gameId")
     boolean checkFinishedGame(Long gameId);
 
 }

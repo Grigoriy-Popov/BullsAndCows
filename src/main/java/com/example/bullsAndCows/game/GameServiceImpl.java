@@ -89,7 +89,7 @@ public class GameServiceImpl implements GameService {
     }
 
     private String generateRandomNumberAsString() {
-        Random random = new Random();
+        var random = new Random();
         Set<Integer> numberAsSet = new HashSet<>(NUMBER_OF_DIGITS);
         while (numberAsSet.size() != NUMBER_OF_DIGITS) {
             numberAsSet.add(random.nextInt(10));
@@ -98,10 +98,8 @@ public class GameServiceImpl implements GameService {
     }
 
     private String getNumberAsStringFromIterableOfIntegers(Iterable<Integer> separatedNum) {
-        StringBuilder stringNum = new StringBuilder();
-        for (Integer num : separatedNum) {
-            stringNum.append(num);
-        }
+        var stringNum = new StringBuilder();
+        separatedNum.forEach(stringNum::append);
         return stringNum.toString();
     }
 

@@ -8,7 +8,7 @@ public class Record implements Comparable<Record> {
     private Long averageAttempts;
 
     @Override
-    public int compareTo(Record o) {
-        return this.averageAttempts.compareTo((o.averageAttempts));
+    public int compareTo(Record record) {
+        return this.averageAttempts.compareTo((record.averageAttempts));
     }
 }

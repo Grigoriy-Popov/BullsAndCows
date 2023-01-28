@@ -22,7 +22,7 @@ public class GameController {
     private final GameService gameService;
     private final UserService userService;
 
-    @GetMapping()
+    @GetMapping
     public String newGame(@AuthenticationPrincipal User user) {
         gameService.newGame(user.getId());
         return "game";
@@ -42,7 +42,7 @@ public class GameController {
         }
         List<String> resultList = gameService.newAttempt(userNumber, user.getId());
         if (gameService.checkWin(activeGameId)) {
-            model.addAttribute("resultList", gameService.getAllGameAttemptsAsListOfStrings(activeGameId));
+            model.addAttribute("resultList", previousAttempts);
             model.addAttribute("resultList", resultList);
             return "finishedGame";
         }

@@ -19,16 +19,22 @@ import java.util.Collections;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank(message = "Username can't be empty")
     private String username;
+
     @NotBlank(message = "Password can't be empty")
     private String password;
+
     @Enumerated(value = EnumType.STRING)
     private Role role;
+
     private boolean active;
+
     @Column(name = "active_game_id")
     private Long activeGameId;
 

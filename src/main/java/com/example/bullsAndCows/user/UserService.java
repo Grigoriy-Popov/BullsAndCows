@@ -3,6 +3,7 @@ package com.example.bullsAndCows.user;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService extends UserDetailsService {
+
     User createUser(User user);
 
     User getUserByUsername(String username);
@@ -12,4 +13,5 @@ public interface UserService extends UserDetailsService {
     boolean existsByUsername(String username);
 
     Long findActiveGameIdByUserId(Long userId);
+
 }
